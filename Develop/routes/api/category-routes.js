@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const category = await Category.findByPk(req.params.id, {
       include: {
@@ -33,8 +33,15 @@ router.get('/:id', (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
-  // create a new category
+router.post('/', async (req, res) => {
+  try {
+    const newCategory = await Category.create({
+      category_name: req.body.category_name,
+    });
+    res.json(newCategory);
+  } catch (error) {
+    handleErrors(res, error);
+  }
 });
 
 router.put('/:id', (req, res) => {
