@@ -20,7 +20,7 @@ Install and configure the login of your mySQL database. Clone this repo, add an 
 MSU Fullstack Bootcamp
 ## License 
 
-    ![badge](https://img.shields.io/badge/license-MIT-blue.svg) [MIT Licensing](https://opensource.org/license/mit/)
+[MIT Licensing](https://opensource.org/license/mit/)
 
 ## Questions
 - Github [benrodriguezmoran](https://github.com/benrodriguezmoran) 
