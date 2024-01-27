@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) => {
         attributes: ["id", "product_name", "price", "stock", "category_id"],
       },
     });
-    res.json(categories);
+    res.json(category);
   } 
   catch (error) {
     handleErrors(res, error);
@@ -44,8 +44,17 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
-  // update a category by its `id` value
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedCategory = await Category.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json(updatedCategory);
+  } catch (error) {
+    handleErrors(res, error);
+  }
 });
 
 router.delete('/:id', (req, res) => {
